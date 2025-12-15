@@ -32,7 +32,8 @@ TEG proposes that irreversible information processing during halo collapse gener
 | σ₈ | 0.811 | 0.764 | ~0.76 |
 | Suppression | — | 5.8% | Match |
 | c(M) slope | Shallow | Steep (M < 10¹¹ M☉) | Testable |
-
+---
+![TEG Visual Abstract](visual_abstract_2x.png)
 ---
 
 ## Installation
