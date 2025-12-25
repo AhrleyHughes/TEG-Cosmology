@@ -1,15 +1,16 @@
-# TEG Cosmology: Thermodynamic Entropic Gravity
+# TEG Cosmology: Topological Entropic Gravity
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18051561.svg)](https://doi.org/10.5281/zenodo.18051561)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Python implementation of Thermodynamic Entropic Gravity (TEG)** — a phenomenological framework for resolving the S₈ tension through local entropic screening during structure formation.
+**A unified cosmological framework** where cosmic expansion and structural growth are governed by the topology of the vacuum, modeled as a ν=5/3 Fractional Quantum Hall fluid.
 
 ## Paper
 
-*"Thermodynamic Self-Regulation of Cosmic Structure: Resolving the S₈ Tension via Local Entropic Screening"* — Ahrley Hughes (2025)
+**"Topological Entropic Gravity: Unifying the Quantum Hall Vacuum with Cosmic Structure Formation to Resolve the S₈ Tension"** — Ahrley Hughes (2025)
 
-📄 **[Read the full paper (PDF)](paper/TEG-final.pdf)**
+📄 **[Read the Preprint on Zenodo](https://doi.org/10.5281/zenodo.18051561)**
 
 ---
 
@@ -17,30 +18,52 @@
 
 The standard ΛCDM model faces two major tensions:
 
-1. **S₈ Tension**: Weak lensing surveys measure S₈ ≈ 0.76, while Planck CMB infers S₈ ≈ 0.83 (approximately 3.5σ discrepancy).
-2. **Dark Energy Evolution**: DESI DR2 favors dynamical "thawing" dark energy over a cosmological constant.
+1. **S₈ Tension**: Weak lensing surveys (KiDS, DES, HSC) measure S₈ ≈ 0.76, while Planck CMB infers S₈ ≈ 0.83 (>3σ discrepancy).
+2. **Dark Energy Evolution**: DESI DR2 favors dynamical "thawing" dark energy.
 
-**TEG proposes** that irreversible information processing during halo collapse generates a local repulsive pressure (P_ent), amplified by the photon-to-baryon ratio η ≈ 10⁹. This mechanism:
-
-- Suppresses the matter power spectrum by approximately **6-8%** in the non-linear regime (k > 0.1 h/Mpc).
-- Resolves the S₈ tension **without altering linear growth**.
-- Predicts a **steeper concentration-mass relation** at low masses, addressing the Cusp-Core problem.
+**TEG proposes** that the vacuum behaves as an incompressible topological fluid. Gravitational collapse locally increases the filling factor, generating a repulsive **Entropic Pressure**. This force is protected by **Berry phases**, preserving quantum coherence and avoiding the decoherence issues of standard entropic gravity.
 
 ---
 
 ## Key Results
 
-| Observable | ΛCDM (Planck) | TEG Prediction | Weak Lensing |
-|------------|---------------|----------------|--------------|
-| **σ₈** | 0.811 | 0.764 | ~0.76 |
-| **Suppression** | — | 5.8% | Match |
-| **c(M) slope** | Shallow | Steep (M < 10¹¹ M_☉) | Testable |
+| Observable | ΛCDM (Planck) | TEG Prediction | Weak Lensing Data |
+|------------|---------------|----------------|-------------------|
+| **σ₈** | 0.811 | **0.766** | ~0.76 – 0.78 |
+| **Suppression** | — | **5.6%** | Matches required suppression |
+| **Halo Structure** | Cuspy (NFW) | **Cored** (M < 10¹¹ M☉) | Matches SPARC / LITTLE THINGS |
 
 ![TEG Visual Abstract](visual_abstract_2x.png)
 
 ---
 
-## Installation
+## The "Zero-Parameter" Derivation
+
+TEG is not a fit to galaxy data. The parameters are derived entirely from fundamental constants and condensed matter topology.
+
+### 1. The Physics
+
+- **Stiffness (Γ = 5/3):** Fixed by the topology of the vacuum, identified as the ν=5/3 Quantum Hall state (the stable particle-hole conjugate of the Laughlin ν=1/3 state).
+- **Coupling (κ ≈ α/2π):** Derived from the Schwinger term for vacuum polarization.
+
+### 2. Parameter Convergence
+
+The value required to solve the tension matches theoretical predictions from two independent physical routes:
+
+| Source | Formula | Value | Gap to Obs. |
+|--------|---------|-------|-------------|
+| **QED (Vacuum Polarization)** | κ = α/2π | **0.00116** | **3%** |
+| **Thermodynamics (BBN)** | κ ~ η^(-1/3) | 0.00085 | 30% |
+| **Geometric Mean** | √(κ_QED × κ_thermo) | 0.00099 | 18% |
+| **Observational Fit** | (Required for S₈) | **0.00120** | — |
+
+**Conclusion:** The coupling constant is not fine-tuned; it is a fundamental property of the vacuum.
+
+---
+
+## Code Usage
+
+### Installation
 
 ```bash
 git clone https://github.com/ahrleyhughes/TEG-Cosmology.git
@@ -48,201 +71,78 @@ cd TEG-Cosmology
 pip install -r requirements.txt
 ```
 
----
+### Main Simulation
 
-## Usage
+Calculates the power spectrum suppression and generates publication figures.
 
 ```bash
 python teg_accurate.py
 ```
 
 **Output:**
-- Prints σ₈ values and suppression percentage to console.
-- Generates `TEG_Figures_1_and_2.png` reproducing paper figures.
-- Saves data arrays to `teg_data.npz` for further analysis.
+- `TEG_Figures_1_and_2.png`: Reproduces the paper's main figures.
+- Console output: Detailed σ₈ comparison.
+- `teg_data.npz`: Saved arrays for external analysis.
 
----
+### Sensitivity Analysis
 
-## Sensitivity & Robustness Check
-
-To verify that the TEG parameters are physically robust and not fine-tuned, we provide a stress-test script (`sensitivity_analysis.py`).
+Verifies robustness against parameter variation.
 
 ```bash
 python sensitivity_analysis.py
 ```
 
-This script performs a parameter sweep to demonstrate:
-
-- **Linear Response**: The σ₈ suppression scales linearly with κ, confirming the model is stable.
-- **Parameter Convergence**: The value of κ required to resolve the S₈ tension (0.0012) is consistent with the theoretical prediction derived from Big Bang Nucleosynthesis (η⁻¹/³ ~ 0.001).
-- **Cross-Scale Validation**: The same coupling constant that fixes the Mpc-scale power spectrum simultaneously resolves the kpc-scale Cusp-Core problem in dwarf galaxies.
-
 ---
 
 ## Figures
 
-The main script generates two figures matching the paper:
-
 ### Figure 1: Power Spectrum Suppression
-- Shows P_TEG / P_ΛCDM ratio versus wavenumber k.
-- Suppression activates at k ~ 0.1 h/Mpc in the non-linear regime.
-- Linear scales (k < 0.1) remain unaffected, preserving CMB constraints.
+
+- Shows P_TEG / P_ΛCDM.
+- Suppression activates exactly in the non-linear regime (k > 0.1 h/Mpc).
+- Linear scales remain unity, preserving CMB constraints.
 
 ### Figure 2: Concentration-Mass Relation
-- Compares ΛCDM versus TEG halo concentrations.
-- TEG predicts "puffier" dwarf halos (M < 10¹¹ M_☉).
-- Falsifiable with Euclid weak lensing and Gaia kinematics.
+
+- Demonstrates the **Topological Signature** of the theory.
+- Predicts a steep divergence from ΛCDM for dwarf halos (M < 10¹¹ M☉).
+- Transforms "cuspy" NFW profiles into constant-density cores.
 
 ---
 
-## Theory Summary
+## Falsifiability & Future Tests
 
-### Core Mechanism: Entropic Pressure
+TEG makes distinct predictions distinguishable from baryonic feedback:
 
-```
-P_ent ≈ κ c² ρ_crit (ρ_b / ρ̄_b)^Γ
-```
-
-**Parameters:**
-- **κ ≈ 0.0012**: Coupling constant derived from η ≈ 10⁹.
-- **Γ = 5/3**: Polytropic index (phenomenological stiffness).
-
-**Physical Origin**: The vacuum acts as a thermodynamic reservoir, resisting local entropy reduction during collapse.
-
-### Modified Power Spectrum
-
-```
-P_TEG(k) = P_ΛCDM(k) × D_TEG(k)²
-```
-
-Where D_TEG(k) is the suppression factor encoding density-dependent screening.
-
----
-
-## Code Structure
-
-Main components of `teg_accurate.py`:
-
-- `eisenstein_hu_transfer()` - Linear transfer function (BAO-accurate)
-- `linear_power_spectrum()` - P(k) ∝ k^n_s T(k)²
-- `calculate_sigma8()` - Integrate with top-hat filter
-- `teg_suppression()` - Core TEG modification
-- `concentration_mass_relation()` - Halo structure prediction
-
----
-
-## Observational Tests
-
-| Test | Dataset | Status |
-|------|---------|--------|
-| S₈ suppression | KiDS-1000, DES Y3, HSC | Consistent |
-| c(M) steepening | Euclid (2025+) | Pending |
-| Dwarf kinematics | Gaia DR4 | Pending |
-| Thawing DE | DESI DR2 | Consistent |
-
----
-
-## Parameter Derivation and Sensitivity Analysis
-
-### A Prediction, Not a Fit
-
-TEG's coupling constant κ was predicted from Big Bang Nucleosynthesis before being confronted with weak lensing data.
-
-Starting from the photon-to-baryon ratio (η ≈ 1.6 × 10⁹):
-
-```
-κ_predicted ~ η⁻¹/³ ≈ 0.00085
-```
-
-**This prediction used zero galaxy data.**
-
-Observationally required value to resolve S₈:
-
-```
-κ_required ≈ 0.0012
-```
-
-**Convergence: 1.4×** between nucleosynthesis (t ~ 3 min) and structure formation (t ~ 10 Gyr).
-
-### Sensitivity Analysis: Power Spectrum Suppression
-
-Parameter sweep with all cosmological parameters fixed at Planck 2018:
-
-| κ Value | δ_max | σ₈ (TEG) | Suppression (%) | Agreement with Weak Lensing |
-|---------|-------|----------|-----------------|----------------------------|
-| 0.0005 | 0.037 | 0.791 | 2.46% | Too High |
-| 0.0008 | 0.059 | 0.779 | 3.95% | Excellent (upper bound) |
-| 0.0010 | 0.073 | 0.772 | 4.94% | Excellent (center) |
-| **0.0012** | **0.088** | **0.764** | **5.80%** | **Excellent (KiDS/DES)** |
-| 0.0015 | 0.110 | 0.753 | 7.15% | Acceptable (lower bound) |
-| 0.0020 | 0.147 | 0.735 | 9.37% | Too Low |
-
-*Planck baseline: σ₈ = 0.811 | Weak lensing target: σ₈ ≈ 0.764–0.779*
-
-**Result:** BBN range (κ = 0.0008–0.0012) matches observational requirement. Factor-of-2 uncertainty still produces agreement.
-
-### Cross-Scale Test: Dwarf Galaxy Concentrations
-
-The same κ resolves the Cusp-Core problem in dwarf galaxies (10⁹ M_☉)—three orders of magnitude separation:
-
-| κ Value | Reduction Factor | Relative Concentration | Physical Implication |
-|---------|------------------|----------------------|---------------------|
-| 0.0005 | 1.45 | 0.41 | Moderate; cusp may persist |
-| **0.0012** | **3.50** | **0.22** | **Strong cores; matches SPARC** |
-| 0.0020 | 5.83 | 0.15 | Too diffuse; gas loss |
-
-**Result:** κ = 0.0012 produces 3.5× concentration reduction, matching SPARC observations.
-
-**Scale separation:** Single BBN-predicted parameter resolves Mpc (power spectrum) and kpc (halo structure) tensions.
+1. **Halo Oblateness**: The chiral nature of topological edge states may induce slight oblateness in dwarf halos (Testable with Gaia/Euclid).
+2. **Redshift Dependence**: If κ originates from QHE, suppression should scale with temperature/redshift (Testable with JWST).
+3. **Discrete Steps**: κ may exhibit quantization steps at phase transitions.
 
 ---
 
 ## Citation
 
-If you use this code, please cite:
-
 ```bibtex
 @article{Hughes2025TEG,
-  title={Thermodynamic Self-Regulation of Cosmic Structure: Resolving the $S_8$ Tension via Local Entropic Screening},
+  title={Topological Entropic Gravity: Unifying the Quantum Hall Vacuum with Cosmic Structure Formation to Resolve the S8 Tension},
   author={Hughes, Ahrley},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2025}
+  publisher={Zenodo},
+  year={2025},
+  doi={10.5281/zenodo.18051561},
+  url={https://doi.org/10.5281/zenodo.18051561}
 }
 ```
-
----
-
-## Customization
-
-Modify TEG parameters in the script:
-
-```python
-kappa = 1.2e-3    # Coupling strength
-Gamma = 5.0/3.0   # Polytropic index
-```
-
-Then re-run to see impact on σ₈ and c(M).
 
 ---
 
 ## Contact
 
 **Ahrley Hughes**  
-ArhleyHughes@proton.me  
-Cincinnati, OH
-
-*Seeking arXiv endorsement in astro-ph.CO*
+Independent Researcher, Cincinnati, OH  
+ArhleyHughes@proton.me
 
 ---
 
 ## License
 
 MIT License - see `LICENSE` file for details.
-
----
-
-## Acknowledgments
-
-- Eisenstein & Hu (1998) for transfer function formalism
-- Planck, KiDS, DES, HSC collaborations for observational data
-- DESI collaboration for BAO constraints
