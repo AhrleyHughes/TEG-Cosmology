@@ -211,6 +211,19 @@ Baryonic feedback exhibits:
 - Multi-scale tuning
 
 ---
+graph TD
+    A[The Observation] -->|Weak Lensing| B(Universe is SMOOTH)
+    A -->|CMB Planck Data| C(Universe should be CLUMPY)
+    B --> D{The S8 Tension}
+    C --> D
+    D -->|Standard Fix| E[Baryonic Feedback]
+    E --> F[Exploding Stars push gas out]
+    F --> G[Requires Fine-Tuning]
+    D -->|TEG Fix| H[Topological Entropic Gravity]
+    H --> I[Vacuum resists squeezing]
+    I --> J[Derived from Constants\n(No Tuning)]
+
+---
 ## Falsifiability and Future Tests
 
 ### Robust, Near-Term Predictions
