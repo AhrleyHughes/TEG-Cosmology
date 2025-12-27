@@ -1,0 +1,43 @@
+# Topological Entropic Gravity (TEG)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18051561.svg)](https://doi.org/10.5281/zenodo.18051561)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## One-Page Summary
+
+### Problem Statement
+Weak lensing surveys (KiDS, DES, HSC) measure **S₈ ≈ 0.76**, while Planck CMB predicts **S₈ ≈ 0.83** under ΛCDM. The ~3σ discrepancy requires a **5–6% suppression** of the matter power spectrum at non-linear scales (k > 0.1 h/Mpc), while leaving the early universe untouched.
+
+### Standard Approach: Baryonic Feedback
+Most models blame "gastrophysics"—exploding stars and black holes pushing matter around. While this works, it requires:
+* Tuning parameters to match the data.
+* "Subgrid" physics that is hard to simulate.
+* Changing the story for every new simulation.
+
+### The TEG Solution
+Topological Entropic Gravity posits that empty space acts like an **incompressible fluid** (specifically, a ν=5/3 Quantum Hall fluid).
+* **Linear Scales (Big):** Space is flexible. Gravity works as normal.
+* **Non-Linear Scales (Dense):** When gravity tries to squeeze space too hard (inside a galaxy halo), the vacuum pushes back.
+
+This generates a repulsive **entropic pressure** that naturally stops matter from clumping too much.
+
+### Parameter Determination (The "No Tuning" Argument)
+The strength of this pressure (κ) isn't just picked to fit the graph. It is derived from two unrelated branches of physics, and they both point to the same number needed to solve the tension.
+
+| Source | Derived κ |
+| :--- | :--- |
+| **Quantum Electrodynamics** (Vacuum Polarization) | **0.00116** |
+| **Thermodynamics** (Early Universe Heat Capacity) | **0.00085** |
+| **Required Value** (To fix S₈ Tension)            | **0.00120** |
+
+*Agreement is within ~10% without any fine-tuning.*
+
+### Observational Discriminants
+How do we know this isn't just baryonic feedback?
+1.  **The Shape:** TEG predicts a smooth, monotonic suppression. Feedback predicts a "spoon" shape (dip and rebound).
+2.  **The Timing:** TEG activates late in the universe's history (z < 1), tracking structure growth exactly.
+
+### Code Availability
+The repository contains the Python implementation for the modified Halo Model and power spectrum calculations.
+**Repository:** [https://github.com/AhrleyHughes/TEG-Cosmology](https://github.com/AhrleyHughes/TEG-Cosmology)
+**Preprint:** [https://doi.org/10.5281/zenodo.18051561](https://doi.org/10.5281/zenodo.18051561)
