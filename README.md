@@ -21,7 +21,7 @@ Baryonic feedback models can produce suppression, but generally require strong, 
 **Topological Entropic Gravity (TEG)** introduces an alternative mechanism: a scale-dependent, non-dissipative pressure sourced by the topology of the vacuum itself. The framework is intentionally minimal and designed to be falsifiable at the level of the matter power spectrum and halo structure.
 
 ---
-
+ ![TEG-HUGHES-2025-visual_abstract](TEG-HUGHES-2025-visual_abstract.png)
 ## Core Assumptions
 
 1. The vacuum admits an effective description as an incompressible topological fluid.
